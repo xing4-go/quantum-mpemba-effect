@@ -1,0 +1,38 @@
+% ==================================================================
+%  pisika.dat — reconstructed stand-in
+%
+%  这个文件本来是 Pisika 期刊 LaTeX 模板包的一部分（官方版本在
+%  Overleaf 上）。它负责加载所需宏包、并定义期刊专用命令
+%  （\dateline、\keywords、\DOI）以及标题页样式。
+%
+%  如果你真的要把稿件投给 Pisika，请用模板包里的官方 pisika.dat
+%  替换本文件。这个重建版只是为了让你现在能编译通过。
+% ==================================================================
+
+% --- 加载宏包 ------------------------------------------------------
+\usepackage{amsmath,amssymb,latexsym}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{caption}
+\usepackage[a4paper,hmargin=2.4cm,vmargin=2.4cm,columnsep=0.7cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+% --- 期刊专用命令 --------------------------------------------------
+\newcommand{\dateline}[1]{#1}
+\newcommand{\keywords}[1]{\par\vspace{6pt}\noindent\textbf{Keywords:}~#1\par}
+\newcommand{\DOI}[1]{%
+  \if\relax\detokenize{#1}\relax\else
+    \par\noindent\textbf{DOI:}~#1\par
+  \fi
+}
+
+% --- 标题页样式（\thispagestyle{titlestyle} 用到）-------------------
+\makeatletter
+\def\ps@titlestyle{\ps@plain}
+\makeatother
